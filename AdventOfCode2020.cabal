@@ -1,0 +1,36 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.34.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           AdventOfCode2020
+version:        0.1.0.0
+category:       None
+homepage:       https://github.com/githubuser/AdventOfCode2020#readme
+author:         David Voigt
+maintainer:     david.voigt1998@gmail.com
+copyright:      2020 David Voigt
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+
+library
+  exposed-modules:
+      AOC.Challenges.Day01
+      AOC.Challenges.Day02
+      Solution
+  other-modules:
+      Paths_AdventOfCode2020
+  hs-source-dirs:
+      src
+  default-extensions: TypeOperators RecordWildCards LambdaCase
+  build-depends:
+      base >=4.7 && <5
+    , containers
+    , split
+    , text
+    , vector
+  default-language: Haskell2010
