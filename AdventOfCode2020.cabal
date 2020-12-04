@@ -22,6 +22,7 @@ library
       AOC.Challenges.Day01
       AOC.Challenges.Day02
       AOC.Challenges.Day03
+      AOC.Challenges.Day04
       AOC.Solution
   other-modules:
       Paths_AdventOfCode2020
