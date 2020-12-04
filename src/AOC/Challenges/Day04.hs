@@ -6,7 +6,7 @@ module AOC.Challenges.Day04
 import AOC.Solution ( (:~>)(..) )
 
 import Data.List.Split
-    ( dropDelims, dropFinalBlank, onSublist, oneOf, split, splitOn )
+    ( dropDelims, dropFinalBlank, oneOf, split, splitOn )
 import qualified Data.Map.Strict as M
 import Data.Maybe ( isJust )
 import Control.Monad ( guard )
@@ -16,7 +16,7 @@ import Text.Read ( readMaybe )
 type Passport = M.Map String String
 
 parseToList :: String -> [[String]]
-parseToList = map (split . dropFinalBlank . dropDelims $ oneOf "\n ") . split (dropFinalBlank . dropDelims $ onSublist "\n\n")
+parseToList = map (split . dropFinalBlank . dropDelims $ oneOf "\n ") . splitOn "\n\n"
 
 parseToMap :: [[String]] -> [Passport]
 parseToMap passports = do
@@ -43,9 +43,12 @@ validatePassportStrict = filter isValid
         -- a # followed by exactly six characters 0-9 or a-f.
         isValidHcl :: String -> Bool
         isValidHcl (x:xs) = 
-            let isValidChar = \c -> isHexDigit c || ( isAlpha c && isLower c)
-                hasHashtag = x == '#'
-            in all isValidChar xs && length xs == 6 && hasHashtag
+            let isValidChar     = \c -> isHexDigit c || ( isAlpha c && isLower c)
+                hasNumPrefix    = x == '#'
+            in all isValidChar xs && length xs == 6 && hasNumPrefix
+
+        isValidPid :: String -> Bool
+        isValidPid pid = length pid == 9 && all isDigit pid
 
         ecls :: [String]
         ecls = ["amb", "blu", "brn", "gry", "grn", "hzl", "oth"]
@@ -53,35 +56,24 @@ validatePassportStrict = filter isValid
         isValid :: Passport -> Bool
         isValid p = isJust $ do
             -- Check birth year
-            byr <- readMaybe =<< M.lookup "byr" p
-            guard (isInRange (1920, 2002) byr)
+            guard . isInRange (1920, 2002) =<< readMaybe =<< M.lookup "byr" p
             -- Check issue year
-            iyr <- readMaybe =<< M.lookup "iyr" p
-            guard (isInRange (2010, 2020) iyr)
+            guard . isInRange (2010, 2020) =<< readMaybe =<< M.lookup "iyr" p
             -- Check expiration year
-            eyr <- readMaybe =<< M.lookup "eyr" p
-            guard (isInRange (2020, 2030) eyr)
+            guard . isInRange (2020, 2030) =<< readMaybe =<< M.lookup "eyr" p
             -- Check height
-            hgt <- M.lookup "hgt" p
-            let (height, unit) = splitAt (length hgt - 2) hgt
-            intHeight <- readMaybe height
-            let validHeight = case unit of
-                    "cm" -> isInRange (150, 193) intHeight
-                    "in" -> isInRange (59, 76) intHeight
+            (hgtStr, hgtUnit) <- span isDigit <$> M.lookup "hgt" p
+            hgt <- readMaybe hgtStr
+            guard $ case hgtUnit of
+                    "cm" -> isInRange (150, 193) hgt
+                    "in" -> isInRange (59, 76) hgt
                     _ -> False
-            guard validHeight
             -- Check hair colour
-            hcl <- M.lookup "hcl" p
-            let validHcl = isValidHcl hcl
-            guard validHcl
+            guard . isValidHcl =<< M.lookup "hcl" p
             -- Check eye colour
-            ecl <- M.lookup "ecl" p
-            let validEcl = ecl `elem` ecls
-            guard validEcl
+            guard . (`elem` ecls) =<< M.lookup "ecl" p
             -- Check passport ID
-            pid <- M.lookup "pid" p
-            let validPid = length pid == 9 && all isDigit pid
-            guard validPid
+            guard . isValidPid =<< M.lookup "pid" p
 
 day04a :: [Passport] :~> Int
 day04a = Solution
