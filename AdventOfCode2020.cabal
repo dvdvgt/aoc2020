@@ -21,7 +21,8 @@ library
   exposed-modules:
       AOC.Challenges.Day01
       AOC.Challenges.Day02
-      Solution
+      AOC.Challenges.Day03
+      AOC.Solution
   other-modules:
       Paths_AdventOfCode2020
   hs-source-dirs:
