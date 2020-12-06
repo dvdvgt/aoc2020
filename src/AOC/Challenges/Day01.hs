@@ -1,5 +1,5 @@
 {-|
-Module      : AOC.Challenges.Day02
+Module      : AOC.Challenges.Day01
 Description : Advent Of Code 2020 solutions for day 1 (https://adventofcode.com/2020/day/1)
 Copyright   : (c) David Voigt, 2020
 License     : MIT

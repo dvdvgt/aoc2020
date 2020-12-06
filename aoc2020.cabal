@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 
-name:           AdventOfCode2020
+name:           aoc2020
 version:        0.1.0.0
 category:       None
 homepage:       https://github.com/githubuser/AdventOfCode2020#readme
@@ -23,9 +23,10 @@ library
       AOC.Challenges.Day02
       AOC.Challenges.Day03
       AOC.Challenges.Day04
+      AOC.Challenges.Day05
       AOC.Solution
   other-modules:
-      Paths_AdventOfCode2020
+      Paths_aoc2020
   hs-source-dirs:
       src
   default-extensions: TypeOperators RecordWildCards LambdaCase
