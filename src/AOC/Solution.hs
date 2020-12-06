@@ -14,7 +14,7 @@ module AOC.Solution
 data a :~> b = Solution
     { parse :: String -> a      -- ^ Parser to parse String input to a
     , solve :: a -> b           -- ^ Function for solving the challange
-    , printer :: b -> String    -- ^ Function to print the result b
+    , output :: b -> String    -- ^ Function to print the result b
     }
 
 -- |Runs a given solution with the appropiate input as String.
@@ -22,7 +22,7 @@ runSolution :: a :~> b -> String -> String
 runSolution Solution{..} input =
     let x = parse input
         y = solve x
-    in printer y
+    in output y
 
 -- |Shows the result of a given solution for given input
 -- Input may be given as a String which represents the number of the

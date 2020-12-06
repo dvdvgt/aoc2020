@@ -33,12 +33,12 @@ day05a :: [String] :~> Int
 day05a = Solution
     { parse = lines
     , solve = foldl1' max . map seatId
-    , printer = show
+    , output = show
     }
 
 day05b :: [String] :~> Int
 day05b = Solution
     { parse = lines
     , solve = fromMaybe (-1) . gap . sort . map seatId
-    , printer = show
+    , output = show
     }

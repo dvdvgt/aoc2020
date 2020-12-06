@@ -85,12 +85,12 @@ day04a :: [Passport] :~> Int
 day04a = Solution
     { parse = parseToMap . parseToList
     , solve = length . validatePassport
-    , printer = show
+    , output = show
     }
 
 day04b :: [Passport] :~> Int
 day04b = Solution
     { parse = parseToMap . parseToList
     , solve = length . validatePassportStrict . validatePassport
-    , printer = show
+    , output = show
     }

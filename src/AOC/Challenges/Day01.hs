@@ -37,12 +37,12 @@ day01a :: [Int] :~> [Int]
 day01a = Solution
     { parse = map read . lines
     , solve = map product . findEntries 2 2020 . Vec.fromList
-    , printer = show
+    , output = show
     }
 
 day01b :: [Int] :~> [Int]
 day01b = Solution
     { parse = map read . lines
     , solve = map product . findEntries 3 2020 . Vec.fromList
-    , printer = show
+    , output = show
     }

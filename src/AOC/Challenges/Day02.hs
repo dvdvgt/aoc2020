@@ -46,12 +46,12 @@ day02a :: [Policy] :~> Int
 day02a = Solution
     { parse     = map parser . lines
     , solve     = length . filter validate1
-    , printer   = show
+    , output   = show
     }
 
 day02b :: [Policy] :~> Int
 day02b = Solution
     { parse     = map parser . lines
     , solve     = length . filter validate2
-    , printer   = show
+    , output   = show
     }

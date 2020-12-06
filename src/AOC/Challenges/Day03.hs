@@ -52,12 +52,12 @@ day03a :: ForestMap :~> Int
 day03a = Solution
     { parse = initMap . lines
     , solve = count
-    , printer = show
+    , output = show
     }
 
 day03b :: ForestMap :~> Int
 day03b = Solution
     { parse = initMap . lines
     , solve = product . count'
-    , printer = show
+    , output = show
     }

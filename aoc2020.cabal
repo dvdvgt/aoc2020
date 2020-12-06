@@ -24,6 +24,7 @@ library
       AOC.Challenges.Day03
       AOC.Challenges.Day04
       AOC.Challenges.Day05
+      AOC.Challenges.Day06
       AOC.Solution
   other-modules:
       Paths_aoc2020
