@@ -1,5 +1,5 @@
 {-|
-Module      : AOC.Challenges.Day01
+Module      : AOC.Challenges.Day08
 Description : Advent Of Code 2020 solutions for day 8 (https://adventofcode.com/2020/day/8)
 Copyright   : (c) David Voigt, 2020
 License     : MIT

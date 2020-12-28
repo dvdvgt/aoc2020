@@ -28,6 +28,7 @@ library
       AOC.Challenges.Day06
       AOC.Challenges.Day07
       AOC.Challenges.Day08
+      AOC.Challenges.Day09
       AOC.Common
       AOC.Solution
   other-modules:

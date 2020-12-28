@@ -1,5 +1,5 @@
 {-|
-Module      : AOC.Challenges.Day01
+Module      : AOC.Challenges.Day07
 Description : Advent Of Code 2020 solutions for day 7 (https://adventofcode.com/2020/day/7)
 Copyright   : (c) David Voigt, 2020
 License     : MIT
