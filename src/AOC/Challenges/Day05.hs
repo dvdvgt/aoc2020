@@ -1,10 +1,13 @@
 {-|
 Module      : AOC.Challenges.Day05
-Description : Advent Of Code 2020 solutions for day 1 (https://adventofcode.com/2020/day/5)
+Description : Advent Of Code 2020 solutions for day 5 (https://adventofcode.com/2020/day/5)
 Copyright   : (c) David Voigt, 2020
 License     : MIT
 -}
-module AOC.Challenges.Day05 where
+module AOC.Challenges.Day05
+( day05a
+, day05b
+) where
 
 import AOC.Solution ( (:~>)(..) )
 import Data.List ( foldl', sort, foldl1' )

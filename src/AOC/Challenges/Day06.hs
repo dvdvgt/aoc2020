@@ -1,6 +1,6 @@
 {-|
 Module      : AOC.Challenges.Day06
-Description : Advent Of Code 2020 solutions for day 1 (https://adventofcode.com/2020/day/6)
+Description : Advent Of Code 2020 solutions for day 6 (https://adventofcode.com/2020/day/6)
 Copyright   : (c) David Voigt, 2020
 License     : MIT
 -}

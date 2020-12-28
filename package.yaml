@@ -27,3 +27,16 @@ library:
   - text
   - split
   - vector
+  - directory
+  - filepath
+  - parsec
+  - megaparsec
+  - hashable
+  - lens
+
+executables:
+  aoc2020-app:
+    main: Run.hs
+    source-dirs: app
+    dependencies:
+    - aoc2020

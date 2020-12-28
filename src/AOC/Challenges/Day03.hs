@@ -1,10 +1,13 @@
 {-|
 Module      : AOC.Challenges.Day03
-Description : Advent Of Code 2020 solutions for day 1 (https://adventofcode.com/2020/day/3)
+Description : Advent Of Code 2020 solutions for day 3 (https://adventofcode.com/2020/day/3)
 Copyright   : (c) David Voigt, 2020
 License     : MIT
 -}
-module AOC.Challenges.Day03 where
+module AOC.Challenges.Day03
+( day03a
+, day03b
+) where
 
 import AOC.Solution ((:~>)(..))
 import Data.Map as M ( insert, lookup, Map )

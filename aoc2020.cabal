@@ -19,12 +19,16 @@ extra-source-files:
 
 library
   exposed-modules:
+      AOC.Challenges
       AOC.Challenges.Day01
       AOC.Challenges.Day02
       AOC.Challenges.Day03
       AOC.Challenges.Day04
       AOC.Challenges.Day05
       AOC.Challenges.Day06
+      AOC.Challenges.Day07
+      AOC.Challenges.Day08
+      AOC.Common
       AOC.Solution
   other-modules:
       Paths_aoc2020
@@ -34,7 +38,25 @@ library
   build-depends:
       base >=4.7 && <5
     , containers
+    , directory
+    , filepath
+    , hashable
+    , lens
+    , megaparsec
+    , parsec
     , split
     , text
     , vector
+  default-language: Haskell2010
+
+executable aoc2020-app
+  main-is: Run.hs
+  other-modules:
+      Paths_aoc2020
+  hs-source-dirs:
+      app
+  default-extensions: TypeOperators RecordWildCards LambdaCase
+  build-depends:
+      aoc2020
+    , base >=4.7 && <5
   default-language: Haskell2010

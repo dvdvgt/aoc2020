@@ -1,6 +1,6 @@
 {-|
 Module      : AOC.Challenges.Day04
-Description : Advent Of Code 2020 solutions for day 1 (https://adventofcode.com/2020/day/4)
+Description : Advent Of Code 2020 solutions for day 4 (https://adventofcode.com/2020/day/4)
 Copyright   : (c) David Voigt, 2020
 License     : MIT
 -}
