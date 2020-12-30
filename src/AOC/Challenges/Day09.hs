@@ -4,13 +4,16 @@ Description : Advent Of Code 2020 solutions for day 9 (https://adventofcode.com/
 Copyright   : (c) David Voigt, 2020
 License     : MIT
 -}
-module AOC.Challenges.Day09 where
+module AOC.Challenges.Day09
+( day09a
+, day09b
+) where
 
 import AOC.Solution ( (:~>)(..) )
-import AOC.Common
+import AOC.Common ( (!!?) )
 
-import Text.Read
-import Control.Monad
+import Text.Read ( readMaybe )
+import Control.Monad ( guard )
 import qualified Data.Set as S
 
 -- PART 1
@@ -44,3 +47,29 @@ day09a = Solution
     }
 
 -- PART 2
+
+solve2 :: Maybe [Int] -> Maybe Int
+solve2 inpt = do
+    toFind <- solve1 inpt
+    inpt' <- inpt
+    xs <- findRange inpt' toFind
+    return (minimum xs + maximum xs)
+    where
+        findRange :: [Int] -> Int -> Maybe [Int]
+        findRange xs target = go 0 [] xs
+            where
+                go _ _ [] = Nothing
+                go 0 [] (y:ys)
+                    | y >= target = go 0 [] ys
+                    | otherwise = go y [y] ys
+                go sum yss@(y:ys) zss@(z:zs)
+                    | sum + z == target = Just (z : yss)
+                    | sum + z > target = go (sum - y) ys zss
+                    | otherwise = go (sum + z) (yss ++ [z]) zs
+
+day09b :: Maybe [Int] :~> Maybe Int
+day09b = Solution
+    { parse = traverse readMaybe . lines
+    , solve = solve2
+    , output = show
+    }
